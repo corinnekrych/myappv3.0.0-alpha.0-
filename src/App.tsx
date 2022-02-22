@@ -3,9 +3,10 @@ import './App.css';
 
 import { Button } from "@cloudbees/react-honeyui/Button";
 import { Alert, Badge, ButtonGroup, Breadcrumb, Card, Nav, Navbar, NavDropdown} from "@cloudbees/react-honeyui";
-import Search from "@cloudbees/honeyui-icons/svg/search.svg";
-import Help from "@cloudbees/honeyui-icons/svg/help.svg";
-import Notifications from "@cloudbees/honeyui-icons/svg/notifications.svg";
+import { ReactComponent as Search} from "@cloudbees/honeyui-icons/svg/search.svg";
+import { ReactComponent as Help} from "@cloudbees/honeyui-icons/svg/help.svg";
+import { ReactComponent as Notifications} from "@cloudbees/honeyui-icons/svg/notifications.svg";
+import { ReactComponent as Check} from "@cloudbees/honeyui-icons/solid/check.svg";
 
 const SVG_WIDTH = 28;
 
@@ -52,12 +53,7 @@ function App() {
                   Selected
                 </div>
                 <div className="ml-auto">
-                  <svg
-                    viewBox="0 0 512 512"
-                    width={16}
-                  >
-                    <use xlinkHref="#check" />
-                  </svg>
+                  <Check width={16}/>
                 </div>
               </div>
             </NavDropdown.Item>
@@ -85,23 +81,17 @@ function App() {
         </div>
         <Navbar.Collapse id="navbarScroll">
           <Nav className="">
-            {/*<div className="d-md-none d-flex mr-md-2 flex-fill w-100">*/}
-            {/*  <button className="icon-btn flex-grow-1">*/}
-            {/*    <svg width={SVG_WIDTH} viewBox={`${Notifications.viewBox}`}>*/}
-            {/*      <use xlinkHref={`#${Notifications.id}`} />*/}
-            {/*    </svg>*/}
-            {/*  </button>*/}
-            {/*  <button className="icon-btn flex-grow-1">*/}
-            {/*    <svg width={SVG_WIDTH} viewBox={`${Help}`}>*/}
-            {/*      <use xlinkHref={`#${Help.id}`} />*/}
-            {/*    </svg>*/}
-            {/*  </button>*/}
-            {/*  <button className="icon-btn flex-grow-1">*/}
-            {/*    <svg width={SVG_WIDTH} viewBox={`${Search.viewBox}`}>*/}
-            {/*      <use xlinkHref={`#${Search.id}`} />*/}
-            {/*    </svg>*/}
-            {/*  </button>*/}
-            {/*</div>*/}
+            <div className="d-md-none d-flex mr-md-2 flex-fill w-100">
+              <button className="icon-btn flex-grow-1">
+                <Notifications width={SVG_WIDTH}/>
+              </button>
+              <button className="icon-btn flex-grow-1">
+                <Help width={SVG_WIDTH} />
+              </button>
+              <button className="icon-btn flex-grow-1">
+                <Search width={SVG_WIDTH} />
+              </button>
+            </div>
             <Nav.Link href="#home">
               Home
             </Nav.Link>
@@ -137,23 +127,15 @@ function App() {
                 </Badge>
               </div>
               <div className="d-none order-md-2 d-md-flex mr-md-2 flex-fill w-100">
-                {/*<div className="d-md-none d-flex mr-md-2 flex-fill w-100">*/}
-                {/*  <button className="icon-btn flex-grow-1">*/}
-                {/*    <svg width={SVG_WIDTH} viewBox={`${Notifications.viewBox}`}>*/}
-                {/*      <use xlinkHref={`#${Notifications.id}`} />*/}
-                {/*    </svg>*/}
-                {/*  </button>*/}
-                {/*  <button className="icon-btn flex-grow-1">*/}
-                {/*    <svg width={SVG_WIDTH} viewBox={`${Help}`}>*/}
-                {/*      <use xlinkHref={`#${Help.id}`} />*/}
-                {/*    </svg>*/}
-                {/*  </button>*/}
-                {/*  <button className="icon-btn flex-grow-1">*/}
-                {/*    <svg width={SVG_WIDTH} viewBox={`${Search.viewBox}`}>*/}
-                {/*      <use xlinkHref={`#${Search.id}`} />*/}
-                {/*    </svg>*/}
-                {/*  </button>*/}
-                {/*</div>*/}
+                <button className="icon-btn flex-grow-1">
+                  <Notifications width={SVG_WIDTH}/>
+                </button>
+                <button className="icon-btn flex-grow-1">
+                  <Help width={SVG_WIDTH} />
+                </button>
+                <button className="icon-btn flex-grow-1">
+                  <Search width={SVG_WIDTH} />
+                </button>
               </div>
               <div className="order-3 m-2 d-flex">
                 <Button
@@ -181,12 +163,7 @@ function App() {
                     Selected
                   </div>
                   <div className="ml-auto">
-                    <svg
-                      viewBox="0 0 512 512"
-                      width={16}
-                    >
-                      <use xlinkHref="#check" />
-                    </svg>
+                    <Check width={16}/>
                   </div>
                 </div>
               </NavDropdown.Item>

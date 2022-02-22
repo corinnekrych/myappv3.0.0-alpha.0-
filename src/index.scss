@@ -1,25 +1,5 @@
-@import "~@cloudbees/honeyui-core/src/index";
-@import "~@cloudbees/honeyui-alert/src/index";
-@import "~@cloudbees/honeyui-badge/src/index";
-@import "~@cloudbees/honeyui-breadcrumb/src/index";
-@import "~@cloudbees/honeyui-button/src/index";
-@import "~@cloudbees/honeyui-card/src/index";
-@import "~@cloudbees/honeyui-carousel/src/index";
-@import "~@cloudbees/honeyui-dropdown/src/index";
-@import "~@cloudbees/honeyui-form/src/index";
-@import "~@cloudbees/honeyui-jumbotron/src/index";
-@import "~@cloudbees/honeyui-list-group/src/index";
-@import "~@cloudbees/honeyui-modal/src/index";
-@import "~@cloudbees/honeyui-nav/src/index";
-@import "~@cloudbees/honeyui-navbar/src/index";
-@import "~@cloudbees/honeyui-pagination/src/index";
-@import "~@cloudbees/honeyui-popover/src/index";
-@import "~@cloudbees/honeyui-progress/src/index";
-@import "~@cloudbees/honeyui-spinner/src/index";
-@import "~@cloudbees/honeyui-table/src/index";
-@import "~@cloudbees/honeyui-toast/src/index";
-@import "~@cloudbees/honeyui-tooltip/src/index";
-@import "~@cloudbees/honeyui-icons/src/index";
+@import "~@cloudbees/honeyui";
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
