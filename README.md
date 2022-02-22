@@ -19,8 +19,9 @@ In your package.json here are the needed dependencies
 HoneyUI uses *peer dependencies* it's up to your project to add the version of the peer dependencies in its "dependencies" section
 
 ### Add HoneyUI styles
-Similarly you need to import the CSss/scss
-in index.scss add
+You need to import the CSS/SCSS (either one or the other)
+
+In `index.scss` add
 
 ```sass
 @import "~@cloudbees/honeyui";
