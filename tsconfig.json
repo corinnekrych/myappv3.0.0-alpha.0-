@@ -11,7 +11,9 @@
     "jsx": "react",
     "skipLibCheck": true,
     "baseUrl": ".",
-
+    "paths": {
+      "@cloudbees/react-honeyui/*": ["./node_modules/@cloudbees/react-honeyui/dist/*"]
+    },
     "noEmit": true
   },
   "include": [
