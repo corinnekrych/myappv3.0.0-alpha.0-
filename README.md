@@ -6,7 +6,7 @@ This sample app was creating using [create-react-app](https://github.com/faceboo
 In order to consume `v3.0.0-alpha.*` here are the steps to do it.
 
 
-### add HoneyUI peer dependencies
+### Add HoneyUI peer dependencies
 In your package.json here are the needed dependencies
 ```json
     "@cloudbees/honeyui": "^3.0.0-alpha.1",
@@ -18,7 +18,7 @@ In your package.json here are the needed dependencies
 ```
 HoneyUI uses *peer dependencies* it's up to your project to add the version of the peer dependencies in its "dependencies" section
 
-### add HoneyUI styles
+### Add HoneyUI styles
 Similarly you need to import the CSss/scss
 in index.scss add
 
@@ -27,9 +27,9 @@ in index.scss add
 ```
  if you want to import all HUI scss.
 
-### use HoneyUI react component
+### Use HoneyUI react component
 
-#### global import
+#### Global import
 
 ```tsx
 import { Alert, Button } from "@cloudbees/react-honeyui";
@@ -41,7 +41,7 @@ import { Alert, Button } from "@cloudbees/react-honeyui";
 <Button>HoneyUI Button</Button>
 ```
 
-#### importing individually for each component
+#### Importing individually for each component
 
 ```tsx
 import { Alert } from "@cloudbees/react-honeyui/Alert";
@@ -54,7 +54,8 @@ import { Button } from "@cloudbees/react-honeyui/Button";
 <Button>HoneyUI Button</Button>
 ```
 
-### tsconfig
+> NOTE: an extra TS config step is needed when willing to consume individual import
+
 For individual import you will need this extra tsconfig in `tsconfid.json` under compilerOptions add:
 
 ```json
