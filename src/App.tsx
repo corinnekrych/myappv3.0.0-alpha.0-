@@ -2,13 +2,40 @@ import React from 'react';
 import './App.css';
 
 import { Button } from "@cloudbees/react-honeyui/Button";
-import { Alert, Badge, ButtonGroup, Breadcrumb, Card, Nav, Navbar, NavDropdown} from "@cloudbees/react-honeyui";
+import { Alert } from "@cloudbees/react-honeyui/Alert";
+import { Badge } from "@cloudbees/react-honeyui/Badge";
+import { Card } from "@cloudbees/react-honeyui/Card";
+//import { Nav } from "@cloudbees/react-honeyui/Nav";
+//import { Navbar } from "@cloudbees/react-honeyui/Navbar";
+//import { NavDropdown } from "@cloudbees/react-honeyui/NavDropdown";
+import {
+  //Alert,
+  //Badge,
+  //Button,
+  ButtonGroup,
+  Breadcrumb,
+  //Card,
+  Combobox, IOption,
+  Nav,
+  Navbar,
+  NavDropdown,
+  ProgressBar,
+  Spinner
+} from "@cloudbees/react-honeyui";
 import { ReactComponent as Search} from "@cloudbees/honeyui-icons/svg/search.svg";
 import { ReactComponent as Help} from "@cloudbees/honeyui-icons/svg/help.svg";
 import { ReactComponent as Notifications} from "@cloudbees/honeyui-icons/svg/notifications.svg";
 import { ReactComponent as Check} from "@cloudbees/honeyui-icons/solid/check.svg";
 
 const SVG_WIDTH = 28;
+
+const aLotOfOptions: IOption[] = [
+  { key: "1", value: "", children: <span>Hello</span> },
+  { key: "2", value: "value-2", label: "Option 2", children: <span>{"Option 2"}</span> },
+  { key: "3", value: "value-3", label: "Option 3", children: <span>{"Option 3"}</span> },
+  { key: "4", value: "value-4", label: "Option 4", children: <span>{"Option 4"}</span> },
+  { key: "5", value: "value-5", label: "Option 5", children: <span>{"Option 5"}</span> }
+];
 
 function App() {
   return (
@@ -220,7 +247,7 @@ function App() {
           <Card.Body>This is some text within a card body.</Card.Body>
         </Card>
 
-        <Card style={{ width: '18rem' }}>
+        <Card className={"mb-3"} style={{ width: '18rem' }}>
           <Card.Img variant="top" src="http://via.placeholder.com/300" />
           <Card.Body>
             <Card.Title>Card Title</Card.Title>
@@ -228,11 +255,38 @@ function App() {
               Some quick example text to build on the card title and make up the bulk of
               the card's content.
             </Card.Text>
+
+            <Combobox
+              className={"mb-3"}
+              clearable
+              placeholder="Search here!"
+              options={aLotOfOptions}
+              defaultValue={[aLotOfOptions[0]]}
+              onChange={(v) => console.log("Value", v)}
+            />
+
             <Button variant="primary">Go somewhere</Button>
           </Card.Body>
         </Card>
-      </div>
+        <ProgressBar className={"mb-3"} now={25} />
 
+        <div className={"mb-3"}>
+          <Spinner animation="border" size="sm" role="status">
+            <span className="sr-only">Loading...</span>
+          </Spinner>
+          <Spinner animation="border" role="status">
+            <span className="sr-only">Loading...</span>
+          </Spinner>
+          <Spinner animation="border" variant="light" size="sm" role="status">
+            <span className="sr-only">Loading...</span>
+          </Spinner>
+          <Spinner animation="border" variant="light" role="status">
+            <span className="sr-only">Loading...</span>
+          </Spinner>
+        </div>
+
+
+      </div>
 
     </div>
   );

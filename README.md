@@ -10,10 +10,7 @@ In order to consume `v3.0.0-alpha.*` here are the steps to do it.
 In your package.json here are the needed dependencies
 ```json
     "@cloudbees/honeyui": "^3.0.0-alpha.1",
-    "@cloudbees/honeyui-icons": "^3.0.0-alpha.1",
     "@cloudbees/react-honeyui": "^3.0.0-alpha.1",
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/icons": "^4.11.2",
     "react-bootstrap": "^1.6.1",
 ```
 HoneyUI uses *peer dependencies* it's up to your project to add the version of the peer dependencies in its "dependencies" section
