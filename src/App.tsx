@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 
 import { Button } from "@cloudbees/react-honeyui/Button";
@@ -16,6 +16,7 @@ import {
   Breadcrumb,
   //Card,
   Combobox, IOption,
+  Modal,
   Nav,
   Navbar,
   NavDropdown,
@@ -38,10 +39,39 @@ const aLotOfOptions: IOption[] = [
 ];
 
 function App() {
+
+  const [isM1Visible, setIsM1Visible] = useState(false);
+  const toggleModal = () => {
+    setIsM1Visible((state) => !state);
+  };
+  const handleClose = () => {
+    console.log("HandleClose called");
+    setIsM1Visible(false);
+  };
+  const toggleButtonText = (isOpen: boolean) => `${isOpen ? "Close" : "Open"} modal`;
+
   return (
     <div className="App">
 
 
+      <Modal show={isM1Visible} onClick={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal title</Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body>
+          <p>Modal body text goes here.</p>
+        </Modal.Body>
+
+        <Modal.Footer>
+          <Button size="sm" variant="secondary">
+            Close
+          </Button>
+          <Button size="sm" variant="primary">
+            Save changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
 
       <Navbar
         expand="md"
@@ -284,7 +314,7 @@ function App() {
             <span className="sr-only">Loading...</span>
           </Spinner>
         </div>
-
+        <Button onClick={toggleModal}>{toggleButtonText(isM1Visible)}</Button>
 
       </div>
 
