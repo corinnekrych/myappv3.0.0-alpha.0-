@@ -2,14 +2,14 @@ import React, {useState} from 'react';
 import './App.css';
 
 import { Button } from "@cloudbees/react-honeyui/Button";
-import { Alert } from "@cloudbees/react-honeyui/Alert";
+//import { Alert } from "@cloudbees/react-honeyui/Alert";
 import { Badge } from "@cloudbees/react-honeyui/Badge";
 import { Card } from "@cloudbees/react-honeyui/Card";
 //import { Nav } from "@cloudbees/react-honeyui/Nav";
 //import { Navbar } from "@cloudbees/react-honeyui/Navbar";
 //import { NavDropdown } from "@cloudbees/react-honeyui/NavDropdown";
 import {
-  //Alert,
+  Alert,
   //Badge,
   //Button,
   ButtonGroup,
@@ -27,6 +27,8 @@ import { ReactComponent as Search} from "@cloudbees/honeyui-icons/svg/search.svg
 import { ReactComponent as Help} from "@cloudbees/honeyui-icons/svg/help.svg";
 import { ReactComponent as Notifications} from "@cloudbees/honeyui-icons/svg/notifications.svg";
 import { ReactComponent as Check} from "@cloudbees/honeyui-icons/solid/check.svg";
+// Not yet part of 3.0.0-alpha.1
+import { Form } from 'react-bootstrap';
 
 const SVG_WIDTH = 28;
 
@@ -39,6 +41,9 @@ const aLotOfOptions: IOption[] = [
 ];
 
 function App() {
+
+  const [showAlert, setShowAlert] = useState(true);
+  const closeAlert = () => {setShowAlert(!showAlert)}
 
   const [isM1Visible, setIsM1Visible] = useState(false);
   const toggleModal = () => {
@@ -54,13 +59,19 @@ function App() {
     <div className="App">
 
 
-      <Modal show={isM1Visible} onClick={handleClose}>
-        <Modal.Header closeButton>
+      <Modal show={isM1Visible} onHide={handleClose}>
+        <Modal.Header closeButton onCloseButtonClick={handleClose}>
           <Modal.Title>Modal title</Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-          <p>Modal body text goes here.</p>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
         </Modal.Body>
 
         <Modal.Footer>
@@ -249,7 +260,7 @@ function App() {
       </Navbar>
 
 
-      <Alert variant="info">
+      <Alert show={showAlert} dismissible onClose={closeAlert} variant="info">
         A simple info alert — check it out!
       </Alert>
 
