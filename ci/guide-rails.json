@@ -1,0 +1,104 @@
+{
+	"metadata": {
+		"version": 1
+	},
+	"application": {
+		"name": "corinne-test2",
+		"language": "NODEJS",
+		"artifact_store": {
+			"repositories": null
+		}
+	},
+	"pipeline": {
+		"segments": [
+			{
+				"name": "Build",
+				"segment_type": "build",
+				"exit_actions": {},
+				"properties": [
+					{
+						"name": "npm.cache",
+						"value": "${SEGMENT_BASE_DIR}/cache/.npm",
+						"description": "npm cache path is set to ${SEGMENT_BASE_DIR}/cache/.npm by default, when caching is enabled. Caches are maintained on the worker where your build gets allocated. For a new worker assigned to the build, the cache will be re-created"
+					}
+				],
+				"deployment_strategy": {},
+				"application_init": {},
+				"packages": [
+					{
+						"name": "((application.name))",
+						"downloads": [],
+						"files": [
+							"((application.name))*"
+						]
+					}
+				],
+				"instance_tags": [
+					{
+						"name": "application.name",
+						"value": "((application.name))"
+					}
+				],
+				"cache_info": {
+					"paths": [
+						"((npm.cache))"
+					]
+				},
+				"tasks": [
+					{
+						"name": "build",
+						"steps": [
+							{
+								"name": "Dependencies",
+								"definition": "Dependencies",
+								"command": "npm install",
+								"properties": null
+							},
+							{
+								"name": "Test",
+								"definition": "Test",
+								"command": "npm test",
+								"properties": null
+							},
+							{
+								"name": "Copy reports",
+								"definition": "Copy reports",
+								"command": "echo \"Copy reports for analysis\" \necho \"EXAMPLE cp coverage/cobertura-coverage.xml coverage.xml\"",
+								"properties": null
+							},
+							{
+								"name": "Package app",
+								"definition": "Package app",
+								"command": "echo \"Create packaged application\" \nnpm pack",
+								"properties": null
+							},
+							{
+								"name": "Package dependencies",
+								"definition": "Package dependencies",
+								"command": "echo \"Packaging dependencies - added as a Package\" \ntar -cvf ./node_modules.tar node_modules",
+								"properties": null
+							}
+						],
+						"docker_options": {
+							"docker_registry_alias_id": "1a13b895-9568-4bf7-68ba-9a2184a5cee2",
+							"repository": "docker-image-corinne-test2"
+						}
+					}
+				]
+			}
+		],
+		"exit_actions": {},
+		"default_properties": [],
+		"deployment_files": [],
+		"application_init": {},
+		"releases": [
+			{
+				"name": "consul",
+				"version": "latest"
+			}
+		]
+	},
+	"organization": {
+		"orgname": "CloudBees"
+	}
+}
