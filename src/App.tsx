@@ -27,6 +27,12 @@ import { ReactComponent as Help} from "@cloudbees/honeyui-icons/svg/help.svg";
 import { ReactComponent as Notifications} from "@cloudbees/honeyui-icons/svg/notifications.svg";
 import { ReactComponent as Check} from "@cloudbees/honeyui-icons/solid/check.svg";
 
+
+import { ReactComponent as Close} from "@cloudbees/honeyui-icons/svg/close.svg";
+
+
+import close from "@cloudbees/honeyui-icons/svg/close.svg";
+
 const SVG_WIDTH = 28;
 
 const aLotOfOptions: IOption[] = [
@@ -41,6 +47,13 @@ function App() {
   return (
     <div className="App">
 
+
+          This icon from honeyui-icons using sprite syntax is not displayed!!!
+          <span className="bg-primary">
+            <svg width={24} viewBox={`${(close as any).viewBox}`}>
+              <use xlinkHref={`#${(close as any).id}`} />
+            </svg>
+          </span>
 
 
       <Navbar
@@ -81,6 +94,7 @@ function App() {
                 </div>
                 <div className="ml-auto">
                   <Check width={16}/>
+                  <Close width={16}/>
                 </div>
               </div>
             </NavDropdown.Item>
@@ -191,6 +205,7 @@ function App() {
                   </div>
                   <div className="ml-auto">
                     <Check width={16}/>
+                    <Close width={16}/>
                   </div>
                 </div>
               </NavDropdown.Item>
